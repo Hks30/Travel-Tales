@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h1>Select Tag</h1>
+
+        <p id="output">The select element is used to create a drop-down list.</p>
+
+        <span>Choose a car:</span>
+        <select id="carList">
+            <option value="11">Audi</option>
+            <option value="22" selected>Ford</option>
+            <option value="33">Opel</option>
+            <option value="44">Volvo</option>
+        </select>
+        <br><br>
+        <button onclick="show()">Choose</button>
+
+        <script>
+            function show() {
+                var select = document.getElementById("carList");
+
+                //alert("The Id of the car you selected is: "+select.options[select.selectedIndex].value);
+                alert("The Id of the car you selected is: "+select.value);
+
+                console.log(select);
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "dbError": "",
+  "carList": [
+    {
+      "id": "10",
+      "make": "Audi",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/white_audi.png",
+      "condition": "fair",
+      "price": "$9,000"
+    },
+    {
+      "id": "12",
+      "make": "Disney",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/pixar.png",
+      "condition": "superb",
+      "price": "$50,000"
+    },
+    {
+      "id": "14",
+      "make": "Buick",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/buick.png",
+      "condition": "great",
+      "price": "$5,000"
+    },
+    {
+      "id": "16",
+      "make": "Ford",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/ford.png",
+      "condition": "poor",
+      "price": "$7,500"
+    },
+    {
+      "id": "18",
+      "make": "Audi",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/blue_audi.png",
+      "condition": "poor",
+      "price": "$9,000"
+    },
+    {
+      "id": "20",
+      "make": "BMW",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/bmw.png",
+      "condition": "poor",
+      "price": "$16,000"
+    },
+    {
+      "id": "22",
+      "make": "Mercedes",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/mercedes.png",
+      "condition": "poor",
+      "price": "$55,000"
+    },
+    {
+      "id": "24",
+      "make": "Ford",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/model_t.png",
+      "condition": "poor",
+      "price": "$37,500"
+    },
+    {
+      "id": "26",
+      "make": "Audi",
+      "photo": "https://cis-linux2.temple.edu/~sallyk/pics_car/yellow_audi.png",
+      "condition": "poor",
+      "price": "$8,000"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>A Select Tag "hand coded" using HTML</h2>
+
+        <p>
+            The select element is used to create a drop-down list.
+        </p>
+
+        <span>Choose a car:</span>
+        <select id="carList">
+            <option value="11">Audi</option>
+            <option value="22" selected>Ford</option>
+            <option value="33">Toyota</option>
+            <option value="44">Volvo</option>
+        </select>
+        <br><br>
+        <button onclick="showCarValue()">Choose Car</button>
+
+        <script>
+            function showCarValue() {
+                var select = document.getElementById("carList");
+
+                alert("The Id of the car you selected is: " + select.value);
+            }
+        </script>
+
+
+        <h2>A Select Tag generated using JS</h2>
+        <div id="genSelectContainer"> </div>
+
+        <script>
+
+
+            function makeSelect( {list, displayProp, idProp, selectedId}) {
+
+                var selectList = document.createElement("select");
+
+                // check that we have the parameter properties that we need.
+
+                if (!list) {
+                    let msg = "Utils.makePickList needs a parameter object with 'list' property " +
+                            "(holds list of display/id pairs from which to make the select tag).";
+                    throw new Error(msg);
+                    return selectList; // empty <select> tag
+                }
+
+                var firstObj = list[0];
+
+                if (!idProp || !(idProp in firstObj)) {
+                    let msg = "Utils.makePickList needs a parameter object with a valid 'idProp' property " +
+                            "(tells the property name within 'list' that becomes the values for the select tag).";
+                    throw new Error(msg);
+                    return selectList; // empty <select> tag
+                }
+
+                if (!displayProp || !(displayProp in firstObj)) {
+                    let msg = "Utils.makePickList needs a parameter object with a valid 'displayProp' property " +
+                            "(tells the property name within 'list' that should show in the select tag's UI).";
+                    throw new Error(msg);
+                    return selectList; // empty <select> tag
+                }
+
+                // add options to the select list
+                for (listEle of list) { // listEle is list[0], list[1], ...
+                    var myOption = document.createElement("option");
+                    myOption.innerHTML = listEle[displayProp]; // what shows in the select tag
+                    myOption.value = listEle[idProp]; // the value behind each item shown in the select tag.
+
+                    if (selectedId && selectedId === myOption.value) {  // selectedId is optional
+                        selectList.value = selectedId;
+                        console.log("selectedId set: " + selectedId);
+                    }
+                    selectList.appendChild(myOption);
+                }
+
+                console.log("selected value of new select tag is " + selectList.value);
+                return selectList;
+
+            } // makeSelect
+
+
+
+            var roleList = [
+                {
+                    userRoleId: "10",
+                    userRoleType: "Admin",
+                    errorMsg: ""
+                },
+                {
+                    userRoleId: "20",
+                    userRoleType: "Edit",
+                    errorMsg: ""
+                },
+                {
+                    userRoleId: "30",
+                    userRoleType: "View",
+                    errorMsg: ""
+                }
+            ];
+
+
+// param properties expected by makeSelect: {list, displayProp, idProp, selectedId}
+
+            var genSelectTag = makeSelect({
+                list: roleList,
+                displayProp: "userRoleType",
+                idProp: "userRoleId",
+                selectedId: "99"
+            });
+
+            document.getElementById("genSelectContainer").appendChild(genSelectTag);
+
+            genSelectTag.onchange = function () {
+                var select = this; // the select tag that had it's value changed
+                alert("The Id you selected is: " + select.options[select.selectedIndex].value);
+            };
+
+        </script>
+    </body>
+</html>

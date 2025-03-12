@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Use this type of comment within HTML -->
+    <title>Travel Tales</title>
+
+    <link href="style/commonStyle.css" rel="stylesheet" type="text/css" />
+    <link href="style/darkTitleStyle.css" rel="stylesheet" type="text/css" />
+    <link href="style/clickSort.css" rel="stylesheet" type="text/css" />
+    <link href="style/dropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/userProfile.css" rel="stylesheet" type="text/css" />
+    <link href="style/find.css" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
+    <!-- Reference the React CDNs (Content Delivery Networks, basically just a hosted web resource) -->
+    <script crossorigin src='https://unpkg.com/react@16/umd/react.development.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@16/umd/react-dom.development.js'></script>
+
+    <!-- By referencing the Babel CDN, we can use JSX (HTML tags in JavaScript) -->
+    <script crossorigin src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+
+    <!-- This lets you use React Routing -->
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+
+</head>
+
+<body>
+    <div id='root'></div>
+
+    <script src="_JS_reusable/ajax_alt.js"></script>
+    <script src="_js_reusable/ajax.js"></script>
+    <script src="_JS_reusable/dropDownFW.js"></script>
+    <script src="_JS_reusable/jsSort.js"></script>
+    <script src="_JS_reusable/sortOrder.js"></script>
+    <script src="_JS_reusable/filterObjList.js"></script>
+    <script src="_JS_reusable/MakeCar.js"></script>
+    <script src="_JS_reusable/MakeObj.js"></script>
+    <script src="_JS_reusable/MakeEmp.js"></script>
+    <script src="_JS_reusable/MakeDestination.js"></script>
+    <script src="_JS_CGF/MakeCar_CGF.js"></script>
+    <script src="_JS_CGF/ObjContentNoReact.js"></script>
+    <script src="_JS_CGF/MakeEmp_CGF.js"></script>
+    <script src="_JS_CGF/MakeDestination_CGF.js"></script>
+    <script src="_js_CGF/findActivity.js"></script>
+    <script src="_JS_CGF/Info.js"></script>
+
+    <script src="modal_sample/js/modalFw.js"></script>
+
+    <!-- React reusable (these not called by the Router, they are called by CGFs). -->
+    <!-- All React scripts that use JSX need script type="text/babel" -->
+    <script type="text/babel" src="_React_reusable/ConvertEle.js"></script>
+    <!-- React components -->
+    <script type="text/babel" src="_React_CGF/Home.js"></script>
+    <script type="text/babel" src="_React_CGF/AjaxUsers.js"></script>
+    <script type="text/babel" src="_React_CGF/AjaxCars.js"></script>
+    <script type="text/babel" src="_React_CGF/AjaxDestination.js"></script>
+    <script type="text/babel" src="_React_CGF/UserTable.js"></script>
+    <script type="text/babel" src="_React_CGF/DestinationFilterTable.js"></script>
+    <script type="text/babel" src="_React_CGF/UserFilterTable.js"></script>
+    <script type="text/babel" src="_React_CGF/Blog.js"></script>
+    <script type="text/babel" src="_React_CGF/LogOn.js"></script>
+    <script type="text/babel" src="_React_CGF/UserProfile.js"></script>
+    <script type="text/babel" src="_React_CGF/LogOff.js"></script>   
+    <script type="text/babel" src="_React_CGF/FindActivityReact.js"></script>
+    <script type="text/babel" src="_React_CGF/UserInsertOrUpdate.js"></script>
+    <script type="text/babel" src="_React_CGF/DestinationInsert.js"></script>
+
+
+    <script type="text/babel">
+
+        //  "use strict";
+
+        dropDownFW({
+            dropHeaderStyle: "dropHeader",
+            dropContentStyle: "dropContent",
+            showStyle: "show",
+            hideStyle: "hide"
+        });
+
+        const Link = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+
+        const App = () => (
+            <ReactRouterDOM.HashRouter>
+
+                <div id="titleNav">
+
+                    <div id="pageTitle">
+                        Travel Tales
+                    </div>
+
+                    <div id="nav">
+                        <div class="dropDown">
+                            <Link to="/home">Home</Link>
+                        </div>
+                    
+                        <div className="dropDown">
+                        <div class="dropHeader">Account</div>
+                            <div className="dropContent">
+                                <Link to="/userInsert">Register</Link><br />
+                                <Link to="/userAuth">Log On</Link><br />
+                                <Link to="/profile">Profile</Link><br />
+                                <Link to="/logout">Log Off</Link>
+
+                            </div>
+                        </div>
+                        <div class="dropDown">
+                            <div class="dropHeader">Search </div>
+                            <div class="dropContent">
+                                <a target="_blank" href="docs/MySQL_Workbench.pdf">My DB PDF</a><br/>
+                                <Link to="/myCar">Car Objects</Link><br />
+                                <Link to="/info">Info</Link><br />
+                                <Link to="/employee">Employee Objects</Link><br />
+                                <Link to="/myObj">My Objects (JS Obj Mod Sample)</Link> <br />
+                                <br/>
+                                <Link to="/usersFilterable">Show Users</Link> <br />
+                                <Link to="/destinationFilterable">Show Destination</Link> <br />
+                            </div>
+                        </div>
+                        <div className="dropDown">
+                        <div className="dropDown">
+                            <Link to="/blog">Blog</Link>
+                        </div>
+                    </div>
+                    <div class="dropDown">
+                            <div class="dropHeader">Homework</div>
+                                <div class="dropContent">
+                                    <Link to="/destinations">JS Destination Objects</Link><br />
+                                </div>
+                            </div>
+                </div>
+</div>
+                <div id="content">
+                    <Route path="/" exact component={Home} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/info" component={() => <ConvertEle ele={Info()} />} />
+                    <Route path="/myCar" component={() => <ConvertEle ele={MakeCar_CGF()} />} />
+                    <Route path="/employee" component={() => <ConvertEle ele={MakeEmp_CGF()} />} />
+                    <Route path="/myObj" component={() => <ConvertEle ele={ObjContentNoReact()} />} />
+                    <Route path="/userInsert" component={UserInsertOrUpdate} />
+                    <Route path="/destinationInsert" component={DestinationInsert} />
+                    <Route path="/destinationUpdate/:id" component={DestinationInsert} />
+                    <Route path="/usersFilterable" component={UserFilterTable} />
+                    <Route path="/usersDb" component={() => AjaxUsers("webUser/getAll")} />
+                    <Route path="/destinationDb" component={() => AjaxDestination("destination/getAll")} />  
+                    <Route path="/destinationFilterable" component={DestinationFilterTable} />            
+                    <Route path="/destinations" component={() => <ConvertEle ele={MakeDestination_CGF()} />} />
+                    <Route path="/blog" component={Blog} />
+                    <Route path="/userAuth" component={UserAuthComponent} />
+                    <Route path="/userUpdate/:id" component={UserInsertOrUpdate} />
+                    <Route path= "/profile" component={UserProfile} />
+                    <Route path="/userFindJS" component={ () => <ConvertEle ele={findActivity()} />  } />
+                    <Route path="/userFindR" component={FindActivityReact} />
+                    <Route path="/logout" component={WrappedLogOff} />
+                </div>
+
+                <div id="footer">
+                   Himanshi Sheth
+                </div>
+
+            </ReactRouterDOM.HashRouter>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>

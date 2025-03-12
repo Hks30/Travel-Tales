@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Use this type of comment within HTML -->
+        <title>[Title of YOUR web site]</title>
+
+        <link href="style/commonStyle.css" rel="stylesheet" type="text/css" />  
+        <link href="style/darkTitleStyle.css" rel="stylesheet" type="text/css" />  
+        <link href="style/clickSort.css" rel="stylesheet" type="text/css" /> 
+        <link href="style/modalStyle.css" rel="stylesheet" type="text/css" />  
+
+        <link rel="shortcut icon" href="icons/favicon.ico">
+
+    </head>
+    <body>
+
+        <div id="titleNav">
+
+            <div id="pageTitle">
+                Website Title
+            </div>
+
+            <div id="nav">
+                <div class="dropdown">
+                    <a href="#/home"><img title="Home" src="icons/dark/home_icon_H24.png" alt="Home"></a>
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Account"  onclick="myDropdown.toggle(this)" src="icons/dark/account_dd_icon_H24.png" alt="Account" >
+                    <div class="dropContent" id="accountDropDown">
+                        <a>Register</a> <br/>
+                        <a>Log In</a> <br/>
+                        <a>Profile</a> <br/>
+                        <a>Log Out</a>
+                    </div> 
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Search" onclick="myDropdown.toggle(this)" src="icons/dark/search_dd_icon_H24.png" alt="Search" >
+                    <div class="dropContent" id="searchDropDown">
+                        <a href="#/users">Users</a> <br/>
+                        <a href="#/cars">Cars</a> 
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Tutorial"  onclick="myDropdown.toggle(this)" src="icons/dark/tutorial_dd_icon_H24.png" alt="Account" >
+                    <div class="dropContent" id="tutorialDropDown">
+                        <a>Proposal</a> <br/>
+                        <a>Demo</a> <br/>
+                        <a>Log</a> <br/>
+                    </div> 
+                </div>          
+                <div class="dropdown">
+                    <a href="#/blog"><img  title="Blog" src="icons/dark/blog_icon_H24.png" alt="Blog"></a>
+                </div>
+            </div>
+
+        </div>  <!-- end of titleNav (keep track of nesting) -->
+
+        <div id="content">
+
+            <p>
+            </p>
+
+            <input type="button" value="Test Alert Modal Window" onclick = "testAlert()"/> 
+
+            <p>
+            </p>
+
+            <input type="button" value="Test Confirm Modal Window" onclick = "testConfirm()"/>
+
+            <p>
+            </p>
+            
+            <input type="button" value="Test Snackbar (msg goes away after a bit)" onclick = "testSnackBar()"/>
+
+     
+            <h2>
+                Just Some Text
+            </h2>
+            <p>
+
+                Lorem ipsum dolor sit amet, eos ei quas fierent posidonium, quo evertitur urbanitas te. Te error eripuit reformidans vim, et natum viris sed. Nec habeo alterum no. Ei malis fastidii nam. Regione reprimique quo ea, his clita consul id.
+
+                Duis latine graecis vis et, mel in dicit dolorum constituto, ex eum paulo copiosae expetendis. Eam te sale omnium praesent. Dicit invenire qui id, ne meis rebum vim. Ne est viris fierent. Nec ubique mnesarchum instructior cu. Idque instructior complectitur ex mel, no duis aliquando qui.
+
+                Vidit assum abhorreant ad sea, ei has ubique reprehendunt, no erant alienum fierent vim. Augue omittam nec te, sed congue argumentum ad. Pro fierent vituperatoribus in, vel eu autem epicurei efficiantur. Virtute bonorum id nam. At ferri decore vim. Sit eu posidonium consectetuer, pri te urbanitas interesset.
+
+                Modus paulo ad duo, te nibh molestiae usu, ex sit ludus principes. No sed malis postea electram, dicat phaedrum mea eu. Ea usu quot legimus percipit, lorem efficiendi in vis. Has ceteros accommodare ex, instructior intellegebat conclusionemque ad vis. Ut mandamus suscipiantur est, omnes tritani concludaturque nec te, quod aliquip accusam est at.
+
+                Mei no graecis moderatius, ei duo sint eirmod menandri. Id tollit dicant option est, no mei euismod impedit. Ne eros rebum labitur mei, est te eirmod nostrum fierent, sit ex doctus nusquam neglegentur. Ei diam expetendis vel.
+
+                An his munere invenire, regione imperdiet eos no. Ad paulo forensibus mei, pri ex petentium tincidunt. Ad enim perpetua theophrastus duo, everti veritus inciderint mei no. Ad rationibus mediocritatem nec, vero atqui mandamus cu vel, ea per atomorum adipiscing interpretaris. Qui ei docendi mediocrem, ea dicunt salutatus vim.
+
+                Purto error laudem per no, duo et viris quaeque mandamus. Et est ipsum fabulas. Consequat efficiantur no sit, ea vel affert gubergren intellegam. Cu soluta nominati usu, mazim periculis maiestatis eos ad. Posse solet definitionem id cum, has eu nihil delenit, pri et justo partem alterum. Eu vis falli debet tacimates, mea illud explicari cotidieque ne.
+
+                Atqui exerci iriure has id, no dolor albucius delicata pro. Qui mundi scriptorem eloquentiam at, quot facete cotidieque sit ex. Et detraxit maiestatis sed, eu eos erat persecuti, eu mei clita iracundia definitiones. Sed ei autem nonumy. Ne est graece singulis, te purto mentitum copiosae usu.
+
+                Errem recteque ex has. Ad vivendo honestatis vis, vis id illud omittantur. Debitis deleniti corrumpit mea in. No mei populo facilisi constituto, sonet temporibus ut cum, eum ut idque feugait. Ius eu vivendo senserit vituperatoribus, erant molestiae vituperatoribus est cu.
+
+                Consul latine eloquentiam vis ad. Dicta dicant accommodare usu at. Discere efficiendi vel eu, vidit populo denique sea ut, duo in ancillae scriptorem disputationi. Officiis perfecto te mel. Vis rationibus adipiscing in.
+
+            </p>
+
+        </div> <!-- content. -->
+
+        <div id="footer">
+            [ your name goes here ]
+        </div>
+
+
+        <script src="js/modalFw.js"></script>
+
+        <script>
+
+                function testAlert() {
+                    var longText = `
+                        A modal window looks a lot more professional than an alert box because you can style it 
+                        as you like. The modalFw.alert() method displays an message box with the consumer's message 
+                        and an X so the user can dismiss the message. 
+                        Do not overuse the "alert message box", as it prevents the user from accessing other parts 
+                        of the page until the alert box is closed.
+                    `;
+                    modalFw.alert(longText);
+                }
+
+                function testConfirm() {
+                    modalFw.confirm('Want to do something?', callback);
+                }
+
+                function callback() {
+                    alert("The call back function was called. \nThis is where you process whatever the user OKed.");
+                }
+
+                function testSnackBar() {
+                    modalFw.snackBar("This message will go away all by itself in 3000 milliseconds.", 3000);
+                }
+        </script>
+    </body>
+</html>
