@@ -3,8 +3,7 @@
 
 A full-stack blog management application with user authentication and content management capabilities.
 
-## Live Demo
-[View Live Demo](https://cis-linux2.temple.edu/tomcat10/fa24_3308_tur08798/index.html#/home)
+## Demo
 
 ![image](https://github.com/user-attachments/assets/746241bd-7361-4730-be54-27d2e5525dd2)
 
